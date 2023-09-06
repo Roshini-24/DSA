@@ -1,0 +1,29 @@
+#mean median
+class Solution:
+    #Function to find median of the array elements.
+    def median(self,A,N):
+        #For median, we need to sort the array.
+        A.sort()
+        median=0
+        
+        #If number of elements is even then the median is average of two middle terms.
+        if N%2==0: 
+            median=(A[N//2]+A[(N//2)-1])//2
+        #If number of elements are odd then the middle term is the median.
+        else:
+            median=A[(N-1)//2] 
+            
+            #returning the median.
+        return median
+        
+    #Function to find mean of the array elements.    
+    def mean(self,A,N):
+        sum=0
+         #We iterate over all elements and store the sum of all elements.
+        for i in A:
+            sum+=i
+           
+        #Mean is the sum of all elements divided by the number of elements.
+        sum=sum//N
+        #returning the mean. 
+        return sum
