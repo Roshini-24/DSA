@@ -49,3 +49,28 @@ def minimumElement(arr,n):
             if arr[i]<res:
                 res=arr[i]
         return res
+#sorted array
+class Solution:
+    def isSorted(self,arr,n):
+        inc = True
+        dec = True
+
+        for i in range(n-1):
+            if arr[i] > arr[i+1]:
+                inc = False
+            if arr[i] < arr[i+1]:
+                dec = False
+            if not inc and not dec:
+                return 0
+        return 1   
+#reverse
+def reverseArray(arr,n):
+    
+    s=0
+    e=n-1
+    while s<e:
+        arr[s],arr[e]=arr[e],arr[s]
+        s+=1
+        e-=1
+    return arr
+
