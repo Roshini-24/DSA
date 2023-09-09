@@ -51,4 +51,15 @@ class Solution:
         cn=cn//10
         
         return self.check(n,cn,pn)
+#count
+
+class Solution:
+    def countDigits(self, n):
+        
+        if n<=9:
+            return 1
+            
+            
+        return  1 + self.countDigits(n//10)
+        # code here
 
