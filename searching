@@ -68,6 +68,52 @@ class Solution:
                 else:
                     l=mid+1
         return 0
+#bakwas
+class Solution:
+    #Back-end complete function Template for Python 3
+    
+    
+    def floorSearch(self, arr, low, high, x):  
+      
+        # If low and high cross each other  
+        if (low > high):  
+            return -1
+      
+        # If last element is smaller than x  
+        if (x >= arr[high]):  
+            return high  
+      
+        # Find the middle point  
+        mid = int((low + high) / 2)  
+      
+        # If middle point is floor.  
+        if (arr[mid] == x):  
+            return mid  
+      
+        # If x lies between mid-1 and mid  
+        if (mid > 0 and arr[mid-1] <= x  
+                    and x < arr[mid]):  
+            return mid - 1
+      
+        # If x is smaller than mid,  
+        # floor must be in left half.  
+        if (x < arr[mid]):  
+            return self.floorSearch(arr, low, mid-1, x)  
+      
+        # If mid-1 is not floor and x is greater than  
+        # arr[mid],  
+        return self.floorSearch(arr, mid+1, high, x)  
+        
+    def findFloor(self,A,N,X):
+        return self.floorSearch(A,0,N-1,X)
+        # linear
+class Solution:
+    #Complete the below function
+    def search(self,arr, N, X):
+        for i in range(0,N):
+            if arr[i]==X:
+                return i
+        return -1
 
             
                
