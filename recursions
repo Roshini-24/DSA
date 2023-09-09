@@ -1,0 +1,54 @@
+#given sequence 
+def theSequence(n):
+    if n==0:
+        return 1
+    else:
+        return n+n*theSequence(n-1)
+#one to n
+class Solution:
+        
+    def printNos(self,N):
+        if(N>0):#The loop runs till N>1
+            self.printNos(N-1)#We keep on recursing till the end as we want to print from 1 to N
+            print(N,end=" ")#When recursion is done then print N
+        
+#array elements
+class Solution:
+    def printArrayRecursively(self,arr,n):
+        if n<1:
+            return
+        else:
+            self.printArrayRecursively(arr,n-1)
+            print(arr[n-1],end=" ")
+#sum of digits
+class Solution:
+    def sumOfDigits(self, n):
+        if n==0:
+            return 0
+        else:
+            return (self.sumOfDigits(n//10) + (n%10))
+#sum of n
+class Solution:
+    def recursiveSum(self,n):
+        if n==0:
+            return 0
+        return n+ self.recursiveSum(n-1)
+
+#palindrome
+class Solution:
+    def isPalin(self,N):
+        
+        return self.check(N,N,0)
+    
+    def check(self,n,cn,pn):
+        if cn==0:
+            if pn==n:
+                return 1
+            else:
+                return 0
+        
+        pn=pn*10+(cn%10)
+        cn=cn//10
+        
+        return self.check(n,cn,pn)
+
