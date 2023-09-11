@@ -172,4 +172,28 @@ class Solution:
             #Calling merge function which sorts and merges both halves
             #of the array obtained after calling both recursive function.
             self.merge(a, start, mid, end)
+#quick
+class Solution:
+    #Function to sort a list using quick sort algorithm.
+    def quickSort(self,arr,low,high):
+        if low<high:
+            pivot = self.partition(arr,low,high)
+            self.quickSort(arr,low,pivot)
+            self.quickSort(arr,pivot+1,high)
+        return arr
+    
+    def partition(self,arr,low,high):
+        p=arr[low]
+        i=low-1
+        j=high+1
+        while True:
+            i=i+1
+            while arr[i]<p:
+                i=i+1
+            j=j-1
+            while arr[j]>p:
+                j=j-1
+            if i>=j:
+                return j
+            arr[i],arr[j]=arr[j],arr[i]
 
