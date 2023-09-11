@@ -1,0 +1,15 @@
+# one pair
+def sumExists(arr, N, sum):
+    l=[]
+    for i in range(N):
+        
+        l.append(arr[i])
+       
+    for i in range(N):
+        y=sum-arr[i]
+        if y==arr[i]:
+            continue
+        
+        elif y in l:
+            return 1
+    return 0
