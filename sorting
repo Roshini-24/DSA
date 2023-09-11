@@ -196,4 +196,31 @@ class Solution:
             if i>=j:
                 return j
             arr[i],arr[j]=arr[j],arr[i]
+#binary arra sort
+class Solution:
+    
+    #Function to sort the binary Aay.
+    def binSort(self, A, N): 
+        left = 0
+        right = N-1
+         
+        #Using segregation method.  
+        while left < right: 
+            #While element at left index is 0, we increase the left index.
+            while A[left] == 0 and left < right: 
+                left += 1
+      
+            #While element at right index is 1, we decrease the right index. 
+            while A[right] == 1 and left < right: 
+                right -= 1
+      
+            #If left is smaller than right then there is a 1 at left 
+            #and a 0 at right. Exchanging A[left] and A[right]. 
+            if left < right: 
+                A[left] = 0
+                A[right] = 1
+                #Updating values of left and right index. 
+                left += 1
+                right -= 1
+                
 
