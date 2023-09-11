@@ -55,3 +55,14 @@ class Solution:
                     
         #returning the hash table.            
         return hash
+#chaining
+class Solution:
+    
+    #Function to insert elements of array in the hashTable avoiding collisions.
+    def separateChaining(self, hashSize, arr, sizeOfArray):
+        l=[[] for x in range(hashSize)]
+        j=0
+        for i in range(len(arr)):
+            j= arr[i]%hashSize
+            l[j].append(arr[i])
+        return l
