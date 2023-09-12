@@ -22,5 +22,17 @@ class Solution:
                 count=count+1
             
         return count
+#anagram
+def isAnagram(self,a,b):
+        if len(a)!=len(b):
+            return False
+        l=[0]*256
+        for i in range(len(a)):
+            l[ord(a[i])]+=1
+            l[ord(b[i])]-=1
+        for x in l:
+            if x!=0:
+                return False
+        return True
 
 
