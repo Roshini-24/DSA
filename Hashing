@@ -66,3 +66,19 @@ class Solution:
             j= arr[i]%hashSize
             l[j].append(arr[i])
         return l
+# count
+  def countNonRepeated(self,arr,n):
+        d=dict()
+        count=0
+        for i in range(n):
+            if arr[i] in d.keys():
+                d[arr[i]]=d[arr[i]]+1
+            else:
+                d[arr[i]]=1
+                
+        for i in d:
+            if d[i]>1:
+                continue
+            else:
+                count=count+1
+        return count
