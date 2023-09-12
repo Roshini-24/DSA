@@ -99,3 +99,17 @@ def printNonRepeated(self,arr,n):
             else:
                 l.append(i)
         return l
+#first repeated value
+    def firstRepeated(self,arr, n):
+        d=dict()
+        
+        for i in range(n):
+            if arr[i] in d.keys():
+                d[arr[i]]=d[arr[i]]+1
+            else:
+                d[arr[i]]=1
+                
+        for i in range(n):
+            if d[arr[i]]>1:
+                return i+1
+        return -1    
