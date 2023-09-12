@@ -48,4 +48,15 @@ def leftmost(st) :
  
 st = "abccbd"  
 print(leftmost(st))
+#count of words
+class Solution:
+    def countWords(self,s):
+        n=len(s)
+        b=0
+        for e in range(n):
+            if s[e]==" ":
+                b=b+1
+            elif e==n-1:
+                b=b+1
+        return b
 
