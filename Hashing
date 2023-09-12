@@ -82,3 +82,20 @@ class Solution:
             else:
                 count=count+1
         return count
+#print non repeated
+def printNonRepeated(self,arr,n):
+        d=dict()
+        l=[]
+        count=0
+        for i in range(n):
+            if arr[i] in d.keys():
+                d[arr[i]]=d[arr[i]]+1
+            else:
+                d[arr[i]]=1
+                
+        for i in arr:
+            if d[i]>1:
+                continue
+            else:
+                l.append(i)
+        return l
