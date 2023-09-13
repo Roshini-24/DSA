@@ -43,3 +43,29 @@ def deleteHead(head):
         head=c.next
         c.next=None
         return head
+#delete end
+def deleteTail(head):
+    if head == None:
+        return  None
+
+    if head.next == None:
+        return None
+
+    curr = head
+
+    while curr.next.next != None:
+        curr = curr.next
+
+    curr.next = None
+    return head
+#delete pos
+def deleteAtPosition(head, pos):
+    if head==None:
+        return None
+    elif pos==1:
+        return head.next
+    c=head
+    for i in range(pos-2):
+        c=c.next
+    c.next=c.next.next
+    return head
