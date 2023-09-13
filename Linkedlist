@@ -69,3 +69,24 @@ def deleteAtPosition(head, pos):
         c=c.next
     c.next=c.next.next
     return head
+#nth node 
+def getNthFromLast(head,n):
+    if head==None:
+        return -1
+    first=head
+    for i in range(n):
+        if first==None:
+            return -1
+        first=first.next
+    second=head
+    while first!=None:
+        second=second.next
+        first=first.next
+    return second.data
+#merge
+def joinTheLists(head1, head2):
+    c=head1
+    while c.next!=None:
+        c=c.next
+    c.next=head2
+    return head1
