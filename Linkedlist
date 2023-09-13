@@ -26,3 +26,20 @@ def sumOfElements(head):
         d=d+c.data
         c=c.next
     return d
+#search
+def searchLinkedList(head,x):
+    c=head
+    while c!=None:
+        if c.data==x:
+            return 1
+        c=c.next
+    return 0
+#delete strat
+def deleteHead(head):
+    c=head
+    if c==None:
+        return None
+    else:
+        head=c.next
+        c.next=None
+        return head
