@@ -10,3 +10,19 @@ def displayList(head):
         l.append(head.data)
         head=head.next
     return l
+#count node
+ def getCount(self, head_node):
+        c=head_node
+        d=0
+        while c!= None:
+            d=d+1
+            c=c.next
+        return d
+#sum of nodes
+def sumOfElements(head):
+    c=head
+    d=0
+    while c!= None:
+        d=d+c.data
+        c=c.next
+    return d
