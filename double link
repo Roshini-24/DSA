@@ -93,3 +93,30 @@ if head == None:
     curr.next = None
 
     return head
+#reverse
+def reverseDLL(head):
+    if head==None:
+        return None
+    elif head.next==None:
+        return head
+    curr=head
+    prev=None
+    while curr!=None:
+        prev=curr
+        curr.next,curr.prev=curr.prev,curr.next
+        curr=curr.prev
+    return prev
+#compare
+  def compareCLL(self,head1,head2):
+        if head1.data==head2.data:
+            return 1
+        curr1=head1
+        curr2=head2
+        while curr1!=None and curr2!=None:
+            if curr1.data==curr2.data:
+                curr1=curr1.next
+                curr2=curr2.next
+            else:
+                return 0
+        if curr1==None and curr2==None:
+            return 1
