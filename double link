@@ -14,4 +14,69 @@
     
 
     return temp
+#display
+def displayList(head):
+    if head==None:
+        return None
+        
+    curr = head.next
+    l=[]
+    l.append(head.data)
+    while curr != head:
+        l.append(curr.data)      
+        curr = curr.next
+    return l
+#check circular
+class Solution: 
+    def isCircular(self, head):
+        if head.prev==head:
+            return 1
+        
+        curr = head.next
+        while curr != None:
+            if curr.next==head:
+                return 1
+            curr = curr.next
+        return 0
+#insert at end
+def insertInTail(head,data):
+    temp = Node(data)
 
+    if head == None:
+        return temp
+
+    else:
+
+        curr = head
+        while curr.next != None:
+            curr = curr.next
+
+        curr.next = temp
+        temp.prev = curr
+
+        return head
+#delete head
+def deleteHead(head):
+    if head == None:
+        return None
+
+    if head.next == None:
+        return None
+    else:
+        head = head.next
+        head.prev = None
+
+        return head
+#mid
+def findMiddle(self, head):
+        if head==None:
+            return None
+        elif head.prev==head:
+            return head.data
+        else:
+            front=head
+            back=head.prev
+            while(front!=back):
+                front=front.next
+                back=back.prev
+            return front.data
