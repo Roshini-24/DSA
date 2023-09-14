@@ -80,3 +80,16 @@ def findMiddle(self, head):
                 front=front.next
                 back=back.prev
             return front.data
+#delete end
+if head == None:
+        return None
+    if head.next == None:
+        return None
+
+    curr = head
+    while curr.next.next != None:
+        curr = curr.next
+
+    curr.next = None
+
+    return head
