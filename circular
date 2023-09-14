@@ -1,0 +1,52 @@
+#traverse
+  if head == None:
+        return
+    print(head.key, end=" ")
+    curr = head.next
+    while curr != head:
+        print(curr.key, end=" ")
+        curr = curr.next
+    def getLength(head):
+    if head == None:
+        return
+    count=1
+    curr = head.next
+    while curr != head:
+        count=count+1
+        curr = curr.next
+    return count
+#display
+          def displayList(head):
+    if head == None:
+        return
+    l=[]
+    l.append(head.data)
+    curr = head.next
+    while curr != head:
+        l.append(curr.data)
+        curr = curr.next
+    return l
+#insertdef insertBeg(head, x):
+    temp = Node(x)
+    if head == None:
+        temp.next = temp
+        return temp
+    curr = head
+    while curr.next != head:
+        curr = curr.next
+
+    curr.next = temp
+    temp.next = head
+    return temp
+  def insertBeg(head,x):
+
+    temp = Node(x)
+    if head == None:
+        temp.next = temp
+        return temp
+    else:
+        temp.next = head.next
+        head.next = temp
+        
+        head.data,temp.data = temp.data,head.data   # swapping data
+        return head
