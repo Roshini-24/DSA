@@ -1,0 +1,72 @@
+#insert a stack
+  def InsertInStack(self,n,arr):
+        stack=[]
+        for i in range (n):
+            stack.append(arr[i])
+        return stack
+# stack using list
+def push(data):
+    global stackMax
+    global top
+    global stack
+    top+=1
+
+    if(top>=stackMax):
+        top-=1
+        print("Stack Full")
+    else:
+        stack[top]=data
+      
+
+def pop():
+    global stack
+    global stackMax
+    global top
+    if(top<=-1):
+        print("Stack Empty")
+    else:
+        stack[top]=-1
+        top-=1
+
+
+        
+        
+def display():
+    global stack
+    global stackMax
+    global top
+    if(top<=-1):
+        print(-1)
+    else:
+        i=0
+        limit=top if top<stackMax else stackMax-1
+        while(i<=top):
+            print(stack[i],end=" ")
+            i+=1
+        print()
+#using linkedist
+class MyStack:
+
+
+    # class StackNode:
+
+    # # Constructor to initialize a node
+    def __init__(self):
+        self.head = None
+        
+        
+    #Function to push an integer into the stack.
+    def push(self, data):
+
+        temp=StackNode(data)
+        temp.next=self.head
+        self.head=temp
+
+
+    #Function to remove an item from top of the stack.
+    def pop(self):
+        if self.head==None:
+            return -1
+        res=self.head.data
+        self.head=self.head.next
+        return res
