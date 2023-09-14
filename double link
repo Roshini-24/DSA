@@ -1,0 +1,17 @@
+#display
+    curr = head
+    while curr != None:
+        print(curr.data, end=" ")
+        curr = curr.next
+    print()
+#insert start
+  def insertInhead(head,data):
+    temp = Node(data)
+
+    if head != None:
+        head.prev = temp
+    temp.next=head
+    
+
+    return temp
+
