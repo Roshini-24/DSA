@@ -70,3 +70,56 @@ class MyStack:
         res=self.head.data
         self.head=self.head.next
         return res
+
+
+
+from collections import deque
+class Solution:
+    #Function to convert prefix expression to infix expression.
+    def preToInfix(self, s):
+        def isOperator(x):
+            return (ch in '+-*/^%')
+    
+        stack = deque()
+        n = len(s)
+        
+        #iterating over the prefix expression from right to left.
+        for i in range(n - 1, -1, -1):
+            ch = s[i]
+            
+            #if current character is an operator, pop the last two elements 
+            #from stack and create the infix expression for the current 
+            #operator and operands and push it back to the stack.
+            if isOperator(ch):
+                op1 = stack.pop()
+                op2 = stack.pop()
+                temp = '(' + op1 + ch + op2 + ')'
+                stack.append(temp)
+            else:
+                #if current character is not an operator, push it to the stack.
+                stack.append(ch)
+        
+        #return the infix expression obtained after converting the prefix expression.
+        return stack.pop()
+
+
+
+from collections import deque
+class Solution:
+    # Function to convert postfix expression to infix expression.
+    def postToInfix(self, postfix):
+        # Function to check if a character is an operand.
+        def isOperand(x):
+            return ('a'<=x<='z') or ('A'<=x<='Z')
+        
+        stack = deque()
+        n = len(postfix)
+        for i in range(n):
+            if isOperand(postfix[i]):
+                stack.append(postfix[i])
+            else:
+                op1 = stack.pop()
+                op2 = stack.pop()
+                stack.append("("+op2+postfix[i]+op1+")")
+        
+        return stack[-1]
