@@ -1,0 +1,48 @@
+class Node:
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+def insertFront(front, rear, data):
+    temp = Node(data)
+    if rear is None and front is None:
+        return temp, temp
+    front.prev = temp
+    temp.next = front
+    return temp, rear
+
+def insertRear(front, rear, data):
+    temp = Node(data)
+    if rear is None:
+        return temp, temp
+    else:
+        rear.next = temp
+        temp.prev = rear
+        return front, temp
+
+def delFront(front, rear):
+    if front is None:
+        print("List is empty.")
+        return None, None
+    else:
+        res = front.data
+        front = front.next
+        if front is None:
+            rear = None
+        else:
+            front.prev = None
+        return res, front, rear
+
+def delRear(front, rear):
+    if rear is None:
+        print("List is empty.")
+        return None, None
+    else:
+        res = rear.data
+        rear = rear.prev
+        if rear is None:
+            front = None
+        else:
+            rear.next = None
+        return res, front, rear
