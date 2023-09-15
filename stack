@@ -123,3 +123,67 @@ class Solution:
                 stack.append("("+op2+postfix[i]+op1+")")
         
         return stack[-1]
+
+
+class Solution:
+    
+    #Function to remove consecutive duplicates from given string using Stack.
+    def removeConsecutiveDuplicates(self,s):
+      
+        if len(s) == 1:
+            return s
+        stack = []
+        top = ''
+        for x in range(len(s)):
+            if s[x] == top:
+                continue
+            else:
+                if stack and stack[-1] == s[x]:
+                    top = stack.pop()
+                else:
+                    stack.append(s[x])
+                    top = s[x]
+        res = ''
+        while stack:
+            res += stack.pop()
+        return res[::-1]
+
+class Solution:
+    
+    #Function to remove pair of duplicates from given string using Stack.
+    def removePair(self,s):
+        
+
+#stack inititation
+        stack = []
+        size = 0
+        #base case
+        if len(s) == 1:
+            return s
+        top = ''
+        
+        for x in s:
+            #wrong if condition what is size of stack is 0
+            # if s[x] == top:
+            #     stack.pop()
+            if size == 0 or x!=stack[-1]:
+                stack.append(x)
+                size+=1
+            else:
+                stack.pop()
+                size-=1
+                # combine these
+                # if stack and stack[-1] == s[x]:
+                #     top = stack.pop()
+                # else:
+                #     stack.append(s[x])
+                #     top = s[x]
+        if size==0:
+            return "Empty String"
+        res = ''
+        while size:
+        #     res += stack.pop()
+            # print(res)
+            res =  stack.pop()+res
+            size-=1
+        return res
