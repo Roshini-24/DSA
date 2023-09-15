@@ -114,3 +114,27 @@ dq.insertRear(40)
 print(dq.frontEle(), dq.rearEle())
 dq.deleteRear()
 print(dq.frontEle(), dq.rearEle())
+
+
+#simple operation
+def push_front_pf(dq,x):
+    dq.appendleft(x)
+    
+
+#Function to push element x to the back of the deque.
+def push_back_pb(dq,x):
+    dq.append(x)
+    
+#Function to return element from front of the deque.
+def front_dq(dq):
+    if dq:
+        
+        return dq[0]
+    else:
+        return -1
+#Function to pop element from back of the deque.
+def pop_back_ppb(dq):
+    if dq:
+        return dq.pop()
+    else:
+        return -1
