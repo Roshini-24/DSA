@@ -1,0 +1,58 @@
+#search
+def searchIterative(root, key):
+ 
+    # start with the root node
+    curr = root
+ 
+    # pointer to store the parent of the current node
+    parent = None
+ 
+    # traverse the tree and search for the key
+    while curr and curr.data != key:
+ 
+        # update the parent to the current node
+        parent = curr
+ 
+        # if the given key is less than the current node, go to the left subtree;
+        # otherwise, go to the right subtree
+        if key < curr.data:
+            curr = curr.left
+        else:
+            curr = curr.right
+
+#insert
+def search(root,key):
+    
+    # Base Cases: root is null or key is present at root
+    if root is None or root.val == key:
+        return root
+
+    # Key is greater than root's key
+    if root.val < key:
+        return search(root.right,key)
+  
+    # Key is smaller than root's key
+    return search(root.left,key)
+
+#delete
+def deleteNode(root, key):
+    if root == None:
+        return
+
+    if root.key > key:
+        root.left = deleteNode(root.left, key)
+
+    if root.key < key:
+        root.right = deleteNode(root.right, key)
+
+    else:
+        if root.left == None:
+            return root.right
+        elif root.right == None:
+            return root.left
+        else:
+            succ = getSucc(root.right, key)
+            root.key = succ
+            root.right = deleteNode(root.right, succ)
+
+    return root
