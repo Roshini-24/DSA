@@ -1,0 +1,128 @@
+#using arry
+class MyQueue:
+
+    #constructor
+    def __init__(self):
+        self.queue = list()
+        self.maxSize = 100005
+        self.head = 0
+        self.tail = 0
+
+    #Function to push an element x in a queue.
+    def push(self,data):
+        
+        #checking if the queue is full and returning proper message.
+        if self.size() >= self.maxSize:
+            return ("Queue Full")
+            
+        #inserting data in the queue at tail.
+        self.queue.append(data)
+        self.tail += 1
+        return      
+
+    #Function to pop an element from queue and return that element. 
+    def pop(self):
+        
+        #checking if the queue is empty and returning -1 if it is already empty.
+        if self.size() <= 0:
+            self.resetQueue()
+            return -1 
+            
+        data = self.queue[self.head]
+        self.head+=1
+        
+        #else we return the element at front.
+        return data
+        
+        
+                
+
+    def size(self):
+        return self.tail - self.head
+    
+    def resetQueue(self):
+        self.tail = 0
+        self.head = 0
+        self.queue = list()
+
+
+#using ll
+class Node: 
+      
+    def __init__(self, data): 
+        self.data = data 
+        self.next = None
+  
+
+class MyQueue: 
+      
+    def __init__(self): 
+        self.front = self.rear = None
+  
+    def isEmpty(self): 
+        return self.front == None
+      
+    #Function to push an element into the queue.
+    def push(self, item): 
+        temp = Node(item) 
+        
+        #if queue is empty, then new node is front and rear both.
+        if self.rear == None: 
+            self.front = self.rear = temp 
+            return
+        
+        #adding the new node at the end of queue and changing rear.
+        self.rear.next = temp 
+        self.rear = temp 
+  
+    #Function to pop front element from the queue. 
+    def pop(self): 
+         
+        #if queue is empty, we return -1. 
+        if self.isEmpty(): 
+            return -1
+            
+        #we delete front and update front as new temp(temp.next).
+        temp = self.front 
+        self.front = temp.next
+  
+        #if front is NULL, we also make rear as NULL.
+        if(self.front == None): 
+            self.rear = None
+            
+        #returning the popped element.
+        return str(temp.data) 
+
+
+
+#operatons
+class Solution:
+    
+    #Function to push an element in queue.
+    def enqueue(self,q,x):
+        #inserting x in the back of queue.
+        q.append(x)
+    
+    #Function to remove front element from queue.
+    def dequeue(self,q):
+        #removing front element using pop operation.
+        q.pop(0) 
+    
+    #Function to find the front element of queue.
+    def front(self,q):
+        #returning the first element of the queue i.e. q[0].
+        return q[0]
+    
+    #Function to find an element in the queue.
+    def find(self,q,x):
+        
+        #creating a copy of the queue.
+        copy = q[::-1]
+    
+        while len(copy):
+            #if element is present in queue, we return true.
+            if copy.pop() == x:
+                return True
+    
+        #we reach the end without finding the given value so we return false.
+        return False
