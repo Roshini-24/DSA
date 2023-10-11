@@ -48,4 +48,94 @@ def findodd(arr) :
         
     return res
 
+#two odd occurence
+def oddappearing(arr) :
+    xors = 0
+    res1 = 0
+    res2 = 0
+    
+    for i in arr :
+        xors = xors ^ i
+        
+    sn = xors & -(xors-1)
+    
+    for i in arr :
+        if i & sn != 0 :
+            res1 = res1 ^ i
+        
+        else :
+            res2 = res2 ^ i 
+            
+    print(res1,res2)
+
+#power set
+def printPowSet(s):
+    n=len(s)
+    pSize=(1<<n)
+    for i in range(pSize):
+        for j in range(n):
+            if((i&(1<<j))!=0):
+                print(s[j], end=" ")
+        print()
+        
+s="ab"
+printPowSet(s)
+
+
+#swap odd even
+class Solution:
+    
+    #Function to swap odd and even bits.
+    def swapBits(self,n):
+        
+        #0xAAAAAAAA means 10101010101010101010101010101010 in binary.
+        #we get all even bits of n.
+        ev=n&0xAAAAAAAA
+        #0x55555555 means 01010101010101010101010101010101 in binary.
+        #we get all odd bits of n.
+        od=n&0x55555555
+        
+        #right Shifting the even bits obtained previously.
+        ev>>=1
+        #left Shifting the even bits obtained previously.
+        od<<=1
+        
+        #doing bitwise OR of even and odd bits obtained and 
+        #returning the final result.
+        return ev|od
+
+#sparse
+    #Function to check if the number is sparse or not.
+    def isSparse(self,n):
+        if n&(n>>1) ==0:
+            return 1
+        else:
+            return 0
+
+#graycode
+def greyConverter(self,n):
+        
+        #Performing Right Shift on n, 1 time.
+        q=(n>>1)
+        
+        #returning the result of XOR opertaion of n and q 
+        #which gives gray code.
+        return n^q
+
+#
+gray to binary
+  def grayToBinary(self,n):
+        b=0
+
+        #We use a loop and Right shift n everytime until it becomes 0.
+        for i in iter(int,1):
+            if(n>0):
+                b=(b^n)
+                n=n>>1
+            else:
+                break
+
+            
+        #returning the Binary equivalent.   
+        return b
 
