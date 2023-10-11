@@ -1,0 +1,51 @@
+#kth bit set
+def isKthBitSet(n, k):
+	if ((n >> (k - 1)) and 1):
+		print("SET")
+	else:
+		print("NOT SET")
+
+
+# Driver code
+if __name__ == "__main__":
+	n, k = 5, 1
+
+	# Function call
+	isKthBitSet(n, k)
+
+
+#all set bit
+def countSetBits(n):
+
+	count = 0
+	while (n):
+		n &= (n-1)
+		count+= 1
+	
+	return count
+Program to test function countSetBits
+i = 9
+print(countSetBits(i))
+
+
+#power of 2
+def isPowerofTwo(n):
+
+	if (n == 0):
+		return 0
+	if ((n & (~(n - 1))) == n):
+		return 1
+	return 0
+
+
+#one odd occurance
+def findodd(arr) :
+    
+    res = 0 
+    
+    for i in arr :
+        res = res ^ i 
+        
+    return res
+
+
